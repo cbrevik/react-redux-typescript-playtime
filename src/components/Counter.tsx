@@ -1,15 +1,15 @@
 import * as React  from 'react';
+import { increment, decrement } from '../actions/counter'
 
 interface ICounterProps {
+    key: string;
 	increment: number;
 	color: string;
+    onTick: () => void;
+    amount: number;
 }
 
-interface ICounterState {
-	counter: number;
-}
-
-export default class Counter extends React.Component<ICounterProps, ICounterState> {
+export default class Counter extends React.Component<ICounterProps, {}> {
 	private interval: number;
 
 	constructor(props) {
@@ -19,9 +19,7 @@ export default class Counter extends React.Component<ICounterProps, ICounterStat
 	}
 
 	tick() {
-		this.setState({
-			counter: this.state.counter + this.props.increment
-		});
+        this.props.onTick();
 	}
 
 	componentWillUnmount() {
@@ -31,7 +29,7 @@ export default class Counter extends React.Component<ICounterProps, ICounterStat
 	render() {
 		return (
 			<h1 style={{ color: this.props.color }}>
-				Counter ({this.props.increment}): {this.state.counter}
+				Counter ({this.props.increment}): {this.props.amount}
 			</h1>
 		);
 	}
