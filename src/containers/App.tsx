@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Counter from '../components/Counter';
+import DevTools from '../components/DevTools';
 import colors from '../colors';
 import { MapStateToProps, MapDispatchToPropsFunction, connect } from 'react-redux';
 import { increment } from '../actions/counter';
@@ -33,6 +34,7 @@ class AppContainer extends React.Component<any, {}> {
                         onTick={() => this.props.onTick(counter.id, counter.increment)}
                     />
                 )}
+                <DevTools />
 			</div>
 		);
 	}

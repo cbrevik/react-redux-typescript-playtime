@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	debug: true,
-	devtool: 'eval',
+	devtool: 'source-map',
 	entry: [
 		'webpack-hot-middleware/client',
 		'./src/index.tsx'
